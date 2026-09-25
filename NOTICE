@@ -1,0 +1,15 @@
+Kinescope XBlock (Robbo fork)
+Copyright (C) 2026 Robbo <https://robbo.ru>
+SPDX-License-Identifier: AGPL-3.0-only
+
+Based on xblock-kinescope by OpenCraft
+(https://github.com/open-craft/xblock-kinescope), which embeds content from
+Kinescope (https://kinescope.io).
+
+Robbo modifications add Studio caption controls (optional text above the
+video), Russian UI strings, and make Open edX course export/import (OLX)
+persist ``video_link``, ``header_text``, and related fields on the kinescope
+tag.
+
+See LICENSE in this repository. Corresponding source for deployed services:
+https://skill.robbo.ru (and sibling Robbo Open edX instances).
