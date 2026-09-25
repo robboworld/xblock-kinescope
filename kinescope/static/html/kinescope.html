@@ -1,6 +1,14 @@
 <div class="kinescope_block">
+    {% if show_header_text and header_text %}
+    <div class="kinescope_header">{{ header_text }}</div>
+    {% endif %}
     <div class="video_wrapper">
-        <iframe class="kinescope_iframe" src="#" allow="autoplay; fullscreen; picture-in-picture; encrypted-media;" frameborder="0" allowfullscreen>
+        {% if video_id %}
+        <iframe class="kinescope_iframe" src="https://kinescope.io/embed/{{ video_id }}" allow="autoplay; fullscreen; picture-in-picture; encrypted-media;" frameborder="0" allowfullscreen>
         </iframe>
+        {% else %}
+        <iframe class="kinescope_iframe" src="about:blank" allow="autoplay; fullscreen; picture-in-picture; encrypted-media;" frameborder="0" allowfullscreen>
+        </iframe>
+        {% endif %}
     </div>
 </div>
