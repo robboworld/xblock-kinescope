@@ -1,15 +1,37 @@
-/* CSS for KinescopeXBlock */
+/* CSS for KinescopeXBlock — scoped so Studio/LMS iframes are not restyled. */
 
-iframe {
+.kinescope_block {
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+}
+
+.kinescope_block .kinescope_header {
+    margin: 0 0 0.75rem;
+    text-align: left;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.kinescope_block .video_wrapper {
+    position: relative;
+    padding-top: 56.25%;
+    width: 100%;
+}
+
+.kinescope_block .kinescope_iframe {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
+    border: 0;
 }
 
-.video_wrapper {
-    position: relative;
-    padding-top: 56.25%;
-    width: 100%
+/* Studio editor: disable caption text when show caption is off */
+.kinescope-studio-edit .kinescope-header-text-field.is-disabled .field-data-control,
+.kinescope-studio-edit .kinescope-header-text-field.is-disabled button.setting-clear {
+    cursor: not-allowed;
+    opacity: 0.5;
 }
+
