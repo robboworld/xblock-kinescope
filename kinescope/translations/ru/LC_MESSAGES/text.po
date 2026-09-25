@@ -1,0 +1,47 @@
+# Copyright (C) 2026 Robbo <https://robbo.ru>
+# SPDX-License-Identifier: AGPL-3.0-only
+# Part of the Robbo Open edX distribution. See NOTICE at repository root.
+
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ru\n"
+
+msgid "Kinescope"
+msgstr "Kinescope"
+
+msgid "Display Name"
+msgstr "Отображаемое название"
+
+msgid "The display name for this component."
+msgstr "Отображаемое название этого компонента."
+
+msgid "Video Link/URL"
+msgstr "Ссылка на видео"
+
+msgid "Video link copied from Kinescope dashboard."
+msgstr "Ссылка на видео из кабинета Kinescope."
+
+msgid "Show caption above video"
+msgstr "Показывать подпись над видео"
+
+msgid "Video has no caption unless this option is enabled."
+msgstr "У видео нет подписи, пока эта настройка выключена."
+
+msgid "Caption text"
+msgstr "Текст подписи"
+
+msgid "Caption shown above the video when enabled."
+msgstr "Текст подписи над видео (если включено)."
+
+msgid "Video Link is mandatory"
+msgstr "Укажите ссылку на видео"
+
+msgid "Provided Kinescope Video URL is invalid"
+msgstr "Некорректная ссылка на видео Kinescope"
+
+msgid "Caption setting enabled"
+msgstr "Включено"
+
+msgid "Caption setting disabled"
+msgstr "Выключено"

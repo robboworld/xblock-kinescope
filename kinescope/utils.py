@@ -4,12 +4,14 @@ Helpers functions for Kinescope XBlock
 from django.core.exceptions import ValidationError
 from urllib.parse import urlparse
 
+try:
+    from django.utils.translation import gettext as _
+    from django.utils.translation import gettext_lazy as _lazy
+except ImportError:  # XBlock workbench without Django
+    def _(text):
+        return text
 
-def _(text):
-    """
-    Make '_' a no-op so we can scrape strings
-    """
-    return text
+    _lazy = _
 
 
 def validate_parse_kinescope_url(text):
