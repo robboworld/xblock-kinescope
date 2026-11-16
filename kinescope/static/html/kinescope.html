@@ -2,13 +2,22 @@
     {% if show_header_text and header_text %}
     <div class="kinescope_header">{{ header_text }}</div>
     {% endif %}
-    <div class="video_wrapper">
-        {% if video_id %}
-        <iframe class="kinescope_iframe" src="https://kinescope.io/embed/{{ video_id }}" allow="autoplay; fullscreen; picture-in-picture; encrypted-media;" frameborder="0" allowfullscreen>
+    {% if video_id %}
+    {# is-loading until the player iframe fires load; inline onload works before the page JS runs. #}
+    <div class="video_wrapper is-loading" data-slow-text="{{ slow_text }}">
+        <div class="kinescope_loader" aria-hidden="true">
+            <span class="kinescope_spinner"></span>
+            <span class="kinescope_loader_text">{{ loading_text }}</span>
+        </div>
+        <iframe class="kinescope_iframe" src="https://kinescope.io/embed/{{ video_id }}" title="{{ iframe_title }}"
+                allow="autoplay; fullscreen; picture-in-picture; encrypted-media;" frameborder="0" allowfullscreen
+                onload="this.parentNode.classList.remove('is-loading')">
         </iframe>
-        {% else %}
-        <iframe class="kinescope_iframe" src="about:blank" allow="autoplay; fullscreen; picture-in-picture; encrypted-media;" frameborder="0" allowfullscreen>
-        </iframe>
-        {% endif %}
     </div>
+    {% else %}
+    <div class="video_wrapper">
+        <iframe class="kinescope_iframe" src="about:blank" title="{{ iframe_title }}" allow="autoplay; fullscreen; picture-in-picture; encrypted-media;" frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+    {% endif %}
 </div>

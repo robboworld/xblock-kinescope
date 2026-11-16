@@ -114,12 +114,19 @@ class KinescopeXBlock(StudioEditableXBlockMixin, XBlock):
         except ValidationError:
             video_id = ""
         header_text = (self.header_text or '').strip()
+        if self.service_declaration("i18n"):
+            ugettext = self.ugettext
+        else:
+            ugettext = lambda text: text
         frag = Fragment(loader.render_django_template(
             "static/html/kinescope.html",
             context={
                 'video_id': video_id,
                 'show_header_text': bool(self.show_header_text),
                 'header_text': header_text,
+                'loading_text': ugettext(_("Loading video…")),
+                'slow_text': ugettext(_("The video is taking longer than usual to load. Please wait a little.")),
+                'iframe_title': header_text or self.display_name or ugettext(_("Kinescope")),
             },
         ))
         frag.add_css_url(self.runtime.local_resource_url(self, "public/css/kinescope.css"))

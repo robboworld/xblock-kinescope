@@ -28,6 +28,74 @@
     border: 0;
 }
 
+/* Loading state: skeleton with a brand spinner until the Kinescope player iframe has loaded. */
+.kinescope_block .kinescope_loader {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(100deg, #eef1ef 40%, #f7f9f8 50%, #eef1ef 60%);
+    background-size: 200% 100%;
+    color: #5c5c5c;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.kinescope_block .video_wrapper.is-loading .kinescope_loader {
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+    animation: kinescope-shimmer 1.6s linear infinite;
+}
+
+.kinescope_block .video_wrapper.is-loading .kinescope_iframe {
+    opacity: 0;
+}
+
+.kinescope_block .kinescope_iframe {
+    transition: opacity 0.3s ease;
+}
+
+.kinescope_block .kinescope_spinner {
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(0, 175, 65, 0.2);
+    border-top-color: #00af41;
+    border-radius: 50%;
+    animation: kinescope-spin 0.9s linear infinite;
+}
+
+.kinescope_block .kinescope_loader_text {
+    max-width: 80%;
+    padding: 0 16px;
+}
+
+@keyframes kinescope-spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes kinescope-shimmer {
+    from { background-position: 100% 0; }
+    to { background-position: -100% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .kinescope_block .video_wrapper.is-loading .kinescope_loader,
+    .kinescope_block .kinescope_spinner {
+        animation: none;
+    }
+}
+
 /* Studio editor: disable caption text when show caption is off */
 .kinescope-studio-edit .kinescope-header-text-field.is-disabled .field-data-control,
 .kinescope-studio-edit .kinescope-header-text-field.is-disabled button.setting-clear {

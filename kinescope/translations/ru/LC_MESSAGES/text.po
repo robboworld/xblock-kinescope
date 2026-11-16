@@ -45,3 +45,9 @@ msgstr "Включено"
 
 msgid "Caption setting disabled"
 msgstr "Выключено"
+
+msgid "Loading video…"
+msgstr "Загрузка видео…"
+
+msgid "The video is taking longer than usual to load. Please wait a little."
+msgstr "Видео загружается дольше обычного. Подождите, пожалуйста."
